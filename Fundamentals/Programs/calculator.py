@@ -8,12 +8,28 @@ def multiply(a, b):
     return a * b
 
 def divide(a, b):
-    return a / b
+    try:
+        return a / b 
+    except ZeroDivisionError:
+        print("Error: Division by zero.")
 
 while True:
-    uinput = int(input("Type a first number: "))
-    uinput2 = int(input("Type another number: "))
+    print("\nType 'quit' at any time to quit")
+
+    uinput = input("Type a first number: ")
+    if not uinput.isnumeric():
+        break
+
+    uinput2 = input("Type another number: ")
+    if not uinput2.isnumeric() :
+        break
+
     op = input("Type the desired operation[+. -, *, /]: ")
+    if op == 'quit':
+        break
+
+    uinput = int(uinput)
+    uinput2 = int(uinput2)
 
     match op:
         case "+":
